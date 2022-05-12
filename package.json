@@ -22,6 +22,8 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@ngrx/store": "^13.2.0",
+    "@ngrx/store-devtools": "^13.2.0",
     "firebase": "^9.6.1",
     "hammerjs": "^2.0.8",
     "rxjs": "~7.4.0",
@@ -29,8 +31,8 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.2",
-    "@angular/cli": "~13.0.2",
+    "@angular-devkit/build-angular": "^13.3.5",
+    "@angular/cli": "^13.3.5",
     "@angular/compiler-cli": "~13.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
