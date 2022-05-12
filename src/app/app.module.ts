@@ -1,3 +1,4 @@
+import { UIService } from './shared/ui.service';
 // App Intialization
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
@@ -66,7 +67,7 @@ import { StopTrainingComponent } from './training/current-training/stop-training
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [AuthService, TrainingService],
+  providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent],
 })
