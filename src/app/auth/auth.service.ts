@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AuthData } from './auth-data.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { UIService } from '../shared/ui.service';
 
 @Injectable()
@@ -16,7 +15,6 @@ export class AuthService {
     private router: Router,
     private fireAuth: AngularFireAuth,
     private trainingService: TrainingService,
-    private snackBar: MatSnackBar,
     private uiService: UIService
   ) {}
 
@@ -42,11 +40,13 @@ export class AuthService {
       .then((result) => {
         this.uiService.loadingStateChanged.next(false);
       })
-      .catch((error) => {
+      .catch(() => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackBar.open('You already exist! TRY AGAIN!', null, {
-          duration: 3000,
-        });
+        this.uiService.showSnackbar(
+          'This User is Already Signed Up, Try Again!',
+          null,
+          3000
+        );
       });
   }
 
@@ -58,12 +58,12 @@ export class AuthService {
         this.uiService.loadingStateChanged.next(false);
         console.log(result);
       })
-      .catch((error) => {
+      .catch(() => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackBar.open(
-          'Try entering the right username and password, Hulk!',
+        this.uiService.showSnackbar(
+          'Invalid Username and/or Password!',
           null,
-          { duration: 3000 }
+          3000
         );
       });
   }

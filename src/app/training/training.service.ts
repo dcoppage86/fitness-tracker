@@ -40,6 +40,15 @@ export class TrainingService {
           this.uiService.loadingStateChanged.next(false);
           this.availableExercises = exercises;
           this.exercisesChanged.next([...this.availableExercises]);
+          () => {
+            this.uiService.loadingStateChanged.next(true);
+            this.uiService.showSnackbar(
+              'Failed to fetch exercises',
+              null,
+              3000
+            );
+            this.exercisesChanged.next(null);
+          };
         })
     );
   }
